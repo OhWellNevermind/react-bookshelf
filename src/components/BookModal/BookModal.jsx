@@ -22,7 +22,11 @@ export const BookModal = props => {
           <div className="p-10 flex flex-col justify-center items-center">
             <div className="flex gap-6 mb-10">
               <div className="min-w-[192px] h-[281px]">
-                <img className="h-full w-full block" src={book_image} alt="" />
+                <img
+                  className="rounded-lg h-full w-full block"
+                  src={book_image}
+                  alt=""
+                />
               </div>
               <div className="flex flex-col">
                 <h3 className="text-[#111] text-[24px] font-bold tracking-[-0.96px] leading-[1.16] w-[279px] mb-2">
