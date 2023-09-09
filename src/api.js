@@ -8,18 +8,20 @@ export const fetchCategories = async () => {
   return response.data;
 };
 
-export const fetchBookByCategory = async category => {
+export const fetchBookByCategory = async (category, controller) => {
   let response;
 
   if (category === 'All categories') {
     response = await axios.get(
-      `https://books-backend.p.goit.global/books/top-books`
+      `https://books-backend.p.goit.global/books/top-books`,
+      { signal: controller.signal }
     );
     return response.data;
   }
 
   response = await axios.get(
-    `https://books-backend.p.goit.global/books/category?category=${category}`
+    `https://books-backend.p.goit.global/books/category?category=${category}`,
+    { signal: controller.signal }
   );
   return response.data;
 };

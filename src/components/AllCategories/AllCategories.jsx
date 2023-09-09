@@ -4,6 +4,11 @@ import { fetchCategories } from 'api';
 
 export const AllCategories = ({ setCategory }) => {
   const [categories, setCategories] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  // const setActiveCategory = id => {
+  //   setIsActiveIndex(id);
+  // };
 
   useEffect(() => {
     async function fetchData() {
@@ -31,9 +36,12 @@ export const AllCategories = ({ setCategory }) => {
       {[...categories].map((category, index) => {
         return (
           <AllCategoriesItem
-            getBooksByCategory={setCategory}
+            setCategory={setCategory}
+            setIsActiveIndex={setActiveIndex}
             category={category}
             key={index + 1}
+            id={index + 1}
+            active={index + 1 === activeIndex}
           />
         );
       })}

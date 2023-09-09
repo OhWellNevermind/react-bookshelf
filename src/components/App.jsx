@@ -9,10 +9,22 @@ export const App = () => {
   const [category, setCategory] = useState('All categories');
 
   useEffect(() => {
+    const controller = new AbortController();
+
     async function fetchData() {
-      setBooks(await fetchBookByCategory(category));
+      try {
+        setBooks(await fetchBookByCategory(category, controller));
+      } catch (error) {
+        if (error.code === 'ERR_CANCELED') {
+          return;
+        }
+      }
     }
     fetchData();
+
+    return () => {
+      controller.abort();
+    };
   }, [category]);
 
   return (
