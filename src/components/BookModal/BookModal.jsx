@@ -47,10 +47,10 @@ export const BookModal = props => {
 
     setIsAdded(false);
   };
-  // console.log(Object.keys(bookInfo));
+
   return (
     <>
-      {Object.keys(bookInfo).length && (
+      {Object.keys(bookInfo).length ? (
         <Dialog
           sx={{
             '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
@@ -68,7 +68,7 @@ export const BookModal = props => {
                 <img
                   className="rounded-lg h-full w-full block"
                   src={book_image}
-                  alt=""
+                  alt={title}
                 />
               </div>
               <div className="flex flex-col">
@@ -123,6 +123,8 @@ export const BookModal = props => {
             )}
           </div>
         </Dialog>
+      ) : (
+        <></>
       )}
     </>
   );

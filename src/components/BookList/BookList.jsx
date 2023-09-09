@@ -70,13 +70,13 @@ export const BookList = ({ books, currentCategory, setCategory }) => {
               </li>
             );
           })}
-          <BookModal
-            onClose={closeModal}
-            open={modalIsOpen}
-            bookInfo={modalBookInfo}
-          />
         </div>
       </ul>
+      <BookModal
+        onClose={closeModal}
+        open={modalIsOpen}
+        bookInfo={modalBookInfo}
+      />
     </>
   );
 };
