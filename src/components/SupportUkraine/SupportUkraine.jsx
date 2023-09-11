@@ -1,4 +1,6 @@
 import React from 'react';
+import { useRef } from 'react';
+import { useState } from 'react';
 
 const supporters = [
   {
@@ -67,31 +69,59 @@ const supporters = [
 ];
 
 export const SupportUkraine = () => {
+  const [isToDown, setIsToDown] = useState(true);
+  const list = useRef(null);
+
+  const scroll = () => {
+    console.dir(list.current);
+    if (isToDown) {
+      list.current.scrollTo({
+        top: list.current.clientHeight,
+        behavior: 'smooth',
+      });
+      setIsToDown(false);
+    } else {
+      list.current.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      setIsToDown(true);
+    }
+  };
+
   return (
-    <div className="support-ukraine-bg pl-10 pt-[26px] pb-[24px] rounded-[18px] w-[356px] h-[474px] ">
-      <p className="mb-[42px] text-[24px] text-[#fff] font-bold tracking-[-0.96px] leading-[1.16]">
-        Support Ukraine
-      </p>
-      <ul className=" flex flex-col gap-5 w-max h-[292px] overflow-y-scroll ">
-        {supporters.map(({ title, url, img, img2x, idx }) => {
-          return (
-            <li key={idx}>
-              <div className="flex items-center gap-[14px]">
-                <p className="text-[#fff]">{idx}</p>
-                <a className="" href={url}>
-                  <img
-                    className="brightness-0 invert hover:brightness-100 hover:invert-0"
-                    srcSet={`${img}, ${img2x}`}
-                    src={img}
-                    alt={title}
-                  />
-                </a>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-      <button>scroll</button>
+    <div className="flex flex-col support-ukraine-bg pt-[26px] pb-[24px] rounded-[18px] w-[356px] h-[474px] ">
+      <div className="ml-10">
+        <p className="mb-[42px] text-[24px] text-[#fff] font-bold tracking-[-0.96px] leading-[1.16]">
+          Support Ukraine
+        </p>
+        <ul
+          ref={list}
+          className=" flex flex-col gap-5 h-[292px] w-[159px] overflow-hidden mb-6"
+        >
+          {supporters.map(({ title, url, img, img2x, idx }) => {
+            return (
+              <li key={idx}>
+                <div className="flex items-center gap-[14px]">
+                  <p className="text-[#fff]">{idx}</p>
+                  <a className="" href={url}>
+                    <img
+                      className="brightness-0 invert hover:brightness-100 hover:invert-0"
+                      srcSet={`${img}, ${img2x}`}
+                      src={img}
+                      alt={title}
+                    />
+                  </a>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <button
+        className="w-[38px] h-[38px] bg-[#fff] rounded-full self-center"
+        onClick={scroll}
+      ></button>
     </div>
   );
 };

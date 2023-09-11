@@ -46,7 +46,7 @@ export const App = () => {
           />
           <SupportUkraine />
         </div>
-        <div>
+        <div className="ml-10">
           <BookList
             setCategory={setCategory}
             currentCategory={category}
