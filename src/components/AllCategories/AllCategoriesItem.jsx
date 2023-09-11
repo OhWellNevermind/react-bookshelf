@@ -8,18 +8,6 @@ export const AllCategoriesItem = ({
   active,
   setIsActiveIndex,
 }) => {
-  // const [active, setActive] = useState(false);
-
-  // useEffect(() => {
-  //   if (category.list_name === 'All categories') {
-  //     setActive(true);
-  //   }
-  //   return () => {
-  //     setActive(false);
-  //   };
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   return (
     <li
       onClick={evt => {

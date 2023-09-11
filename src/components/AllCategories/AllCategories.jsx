@@ -3,9 +3,8 @@ import { AllCategoriesItem } from './AllCategoriesItem';
 import { fetchCategories } from 'api';
 import { toast } from 'react-hot-toast';
 
-export const AllCategories = ({ setCategory }) => {
+export const AllCategories = ({ setCategory, activeIndex, setActiveIndex }) => {
   const [categories, setCategories] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(1);
 
   // const setActiveCategory = id => {
   //   setIsActiveIndex(id);

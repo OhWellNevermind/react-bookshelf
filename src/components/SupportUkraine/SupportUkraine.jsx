@@ -75,7 +75,7 @@ export const SupportUkraine = () => {
       <ul className=" flex flex-col gap-5 w-max h-[292px] overflow-y-scroll ">
         {supporters.map(({ title, url, img, img2x, idx }) => {
           return (
-            <li>
+            <li key={idx}>
               <div className="flex items-center gap-[14px]">
                 <p className="text-[#fff]">{idx}</p>
                 <a className="" href={url}>

@@ -3,7 +3,13 @@ import { BookListAll } from './BookListAll';
 import { BookListCategory } from './BookListCategory';
 import { useState } from 'react';
 
-export const BookList = ({ books, currentCategory, setCategory }) => {
+export const BookList = ({
+  books,
+  currentCategory,
+  setCategory,
+  activeIndex,
+  setActiveIndex,
+}) => {
   const [modalBookInfo, setModalBookInfo] = useState({});
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -12,6 +18,9 @@ export const BookList = ({ books, currentCategory, setCategory }) => {
   };
 
   const highlightLastWord = category => {
+    if (!category) {
+      return;
+    }
     const words = category.split(' ');
     const activeWord = words[words.length - 1];
     words.splice(words.length - 1, 1);
@@ -27,7 +36,7 @@ export const BookList = ({ books, currentCategory, setCategory }) => {
       {currentCategory === 'All categories' ? (
         <>{highlightLastWord('Best Sellers Book')}</>
       ) : (
-        <>{highlightLastWord(books[0].list_name)}</>
+        <>{highlightLastWord(books[0]?.list_name)}</>
       )}
       <ul className="flex flex-col flex-wrap w-[100%] ">
         <div className="flex flex-wrap gap-y-[40px] gap-x-[24px]">
@@ -59,6 +68,7 @@ export const BookList = ({ books, currentCategory, setCategory }) => {
                   <button
                     onClick={evt => {
                       setCategory(evt.currentTarget.value);
+                      setActiveIndex(index + 2);
                     }}
                     value={category.list_name}
                     className="w-fit px-[28px] py-[14px] border-[2px] border-[#4F2EE8] rounded-[40px] place-self-end 

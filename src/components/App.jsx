@@ -9,9 +9,11 @@ import { SupportUkraine } from './SupportUkraine/SupportUkraine';
 export const App = () => {
   const [books, setBooks] = useState([]);
   const [category, setCategory] = useState('All categories');
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(1);
 
   useEffect(() => {
     const controller = new AbortController();
+    setBooks([]);
 
     async function fetchData() {
       try {
@@ -37,7 +39,11 @@ export const App = () => {
       <Header />
       <main className="flex gap-[20px] px-6 py-6">
         <div className="flex flex-col gap-[86px]">
-          <AllCategories setCategory={setCategory} />
+          <AllCategories
+            setCategory={setCategory}
+            activeIndex={activeCategoryIndex}
+            setActiveIndex={setActiveCategoryIndex}
+          />
           <SupportUkraine />
         </div>
         <div>
@@ -45,6 +51,8 @@ export const App = () => {
             setCategory={setCategory}
             currentCategory={category}
             books={books}
+            activeIndex={activeCategoryIndex}
+            setActiveIndex={setActiveCategoryIndex}
           />
         </div>
       </main>
