@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-export const fetchCategories = async () => {
+export const fetchCategories = async controller => {
   const response = await axios.get(
-    'https://books-backend.p.goit.global/books/category-list'
+    'https://books-backend.p.goit.global/books/category-list',
+    { signal: controller.signal }
   );
 
   return response.data;

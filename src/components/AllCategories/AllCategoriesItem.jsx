@@ -27,7 +27,7 @@ export const AllCategoriesItem = ({
         setCategory(evt.currentTarget.textContent);
       }}
       className={clsx(
-        ' hover:text-[#4F2EE8] cursor-pointer transition hover:uppercase text-[16px] leading-[1.33] tracking-[-0.36px]',
+        ' hover:text-[#4F2EE8] cursor-pointer transition-all text-[16px] leading-[1.33] tracking-[-0.36px]',
         {
           'text-[#4F2EE8] uppercase': active,
         }
