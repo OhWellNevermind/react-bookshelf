@@ -1,14 +1,27 @@
 import React from 'react';
+import { useMemo } from 'react';
 
-export const BookListAll = ({ setModalBookInfo, openModal, books }) => {
+export const BookListAll = ({
+  setModalBookInfo,
+  openModal,
+  books = [],
+  booksCount,
+}) => {
+  const visibleBooks = useMemo(() => {
+    return books.filter((_, idx) => idx <= booksCount);
+  }, [books, booksCount]);
+
   return (
-    <ul className="flex gap-[24px] mb-[32px]">
-      {books.map(book => {
+    <ul className="flex gap-[24px] md:gap-[25px] mb-[32px]">
+      {visibleBooks.map(book => {
         return (
-          <li className="flex flex-col w-[180px]" key={book._id}>
+          <li
+            className="flex flex-col w-[335px] md:w-[218px] lg:w-[180px]"
+            key={book._id}
+          >
             <div>
               <img
-                className="mb-[14px] h-[256px] rounded-[8px] cursor-pointer"
+                className="mb-[14px] h-[485px] md:h-[316px] lg:h-[256px] rounded-[8px] cursor-pointer min-w-full"
                 src={book.book_image}
                 alt=""
                 onClick={() => {

@@ -62,28 +62,28 @@ export const BookModal = props => {
           onClose={onClose}
           open={open}
         >
-          <div className="p-10 flex flex-col justify-center items-center">
-            <div className="flex gap-6 mb-10">
-              <div className="min-w-[192px] h-[281px]">
+          <div className="py-10 px-6 flex flex-col justify-center items-center">
+            <div className="flex flex-col md:flex-row gap-6 mb-10">
+              <div className="w-[287px] h-[408px] self-center md:w-[192px] md:h-[281px]">
                 <img
                   className="rounded-lg h-full w-full block"
                   src={book_image}
                   alt={title}
                 />
               </div>
-              <div className="flex flex-col">
-                <h3 className="text-[#111] text-[24px] font-bold tracking-[-0.96px] leading-[1.16] w-[279px] mb-2">
+              <div className="flex flex-col w-[287px]">
+                <h3 className="text-[#111] text-[16px] md:text-[24px] font-bold tracking-[-0.64px] md:tracking-[-0.96px] leading-[1.12] md:leading-[1.16] w-fit mb-2">
                   {title}
                 </h3>
-                <p className="text-[#B4AFAF] italic leading-[1.28] tracking-[-0.56px] mb-5">
+                <p className="text-[#B4AFAF] text-[12px] italic leading-[1.16] md:leading-[1.28] tracking-[-0.48px] md:tracking-[-0.56px] mb-5 w-fit">
                   {author}
                 </p>
-                <p className="w-[279px] max-h-[70px] overflow-y-auto text-[#111] leading-[1.28] tracking-[-0.56] mb-5">
+                <p className="w-[287px] md:w-[279px] max-h-[70px] overflow-y-auto text-[#111] text-[14px] leading-[1.28] tracking-[-0.56px] mb-5">
                   {description
                     ? description
                     : 'Sorry, currently there is no description for that book.'}
                 </p>
-                <ul className="flex">
+                <ul className="flex w-fit">
                   <li>
                     <a href={buy_links[0].url}>{buy_links[0].name}</a>
                   </li>
@@ -98,24 +98,28 @@ export const BookModal = props => {
             </div>
             {!isAdded ? (
               <button
-                className="border-2 py-5 w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
-                text-[#111] hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200"
+                className="border-2 py-[14px] px-7 w-fit md:w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
+                text-[#111] hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 flex justify-center items-center"
                 value={JSON.stringify(bookInfo)}
                 onClick={addToShoppingList}
               >
-                Add to shopping list
+                <span className="block text-[#111] text-[14px] font-bold leading-[1.28] tracking-[-0.14px] w-fit whitespace-nowrap uppercase">
+                  Add to shopping lists
+                </span>
               </button>
             ) : (
               <>
                 <button
-                  className="border-2 py-5 w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
-                  text-[#111] hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 mb-2"
+                  className="border-2 py-[14px] px-7 w-fit md:w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
+                text-[#111] hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 mb-2 flex justify-center items-center"
                   value={JSON.stringify(bookInfo)}
                   onClick={removeFromShoppingList}
                 >
-                  Remove from shopping lists
+                  <span className="block text-[#111] text-[14px] md:text-[18px] font-bold leading-[1.28] md:leading-[1.33] tracking-[-0.14px] md:tracking-[-0.18px] w-fit whitespace-nowrap uppercase">
+                    Remove from shopping lists
+                  </span>
                 </button>
-                <p className="text-[#11111180] text-center text-[12px] tracking-[-0.48px] leading-[1.16] w-[324px]">
+                <p className="text-[#11111180] text-center text-[12px] tracking-[-0.48px] leading-[1.16] w-[242px] md:w-[324px]">
                   Сongratulations! You have added the book to the shopping list.
                   To delete, press the button “Remove from the shopping list”.
                 </p>

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
@@ -65,6 +66,7 @@ const supporters = [
     img: new URL('/src/images/united.png', import.meta.url),
     img2x: new URL('/src/images/united@2x-2.png', import.meta.url),
     idx: '09',
+    height: 15,
   },
 ];
 
@@ -76,7 +78,7 @@ export const SupportUkraine = () => {
     console.dir(list.current);
     if (isToDown) {
       list.current.scrollTo({
-        top: list.current.clientHeight,
+        top: list.current.offsetTop,
         behavior: 'smooth',
       });
       setIsToDown(false);
@@ -90,23 +92,26 @@ export const SupportUkraine = () => {
   };
 
   return (
-    <div className="flex flex-col support-ukraine-bg pt-[26px] pb-[24px] rounded-[18px] w-[356px] h-[474px] ">
+    <div className="flex flex-col support-ukraine-bg pt-[24px] pb-[20px] rounded-[18px] w-[335px] h-[352px] md:h-[474px]">
       <div className="ml-10">
         <p className="mb-[42px] text-[24px] text-[#fff] font-bold tracking-[-0.96px] leading-[1.16]">
           Support Ukraine
         </p>
         <ul
           ref={list}
-          className=" flex flex-col gap-5 h-[292px] w-[159px] overflow-hidden mb-6"
+          className=" flex flex-col gap-5 h-[188px] md:h-[292px] w-[159px] overflow-y-auto mb-6"
         >
-          {supporters.map(({ title, url, img, img2x, idx }) => {
+          {supporters.map(({ title, url, img, img2x, idx, height }) => {
             return (
               <li key={idx}>
                 <div className="flex items-center gap-[14px]">
                   <p className="text-[#fff]">{idx}</p>
                   <a className="" href={url}>
                     <img
-                      className="brightness-0 invert hover:brightness-100 hover:invert-0"
+                      className={clsx(
+                        'brightness-0 invert hover:brightness-100 hover:invert-0',
+                        height ? `h-[${height}]` : 'h-[32px]'
+                      )}
                       srcSet={`${img}, ${img2x}`}
                       src={img}
                       alt={title}
@@ -119,9 +124,27 @@ export const SupportUkraine = () => {
         </ul>
       </div>
       <button
-        className="w-[38px] h-[38px] bg-[#fff] rounded-full self-center"
+        className={clsx(
+          'w-[38px] h-[38px] bg-[#fff] rounded-full self-center flex justify-center items-center transition-all',
+          {
+            'rotate-180': !isToDown,
+          }
+        )}
         onClick={scroll}
-      ></button>
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+        >
+          <path
+            d="M10.3491 12.2835C10.4344 12.3694 10.5357 12.4376 10.6475 12.4841C10.7592 12.5306 10.879 12.5546 11 12.5546C11.121 12.5546 11.2408 12.5306 11.3525 12.4841C11.4642 12.4376 11.5656 12.3694 11.6508 12.2835L15.8492 8.07596C15.9344 7.99004 16.0358 7.92184 16.1475 7.87531C16.2592 7.82877 16.379 7.80481 16.5 7.80481C16.621 7.80481 16.7408 7.82877 16.8525 7.87531C16.9642 7.92184 17.0656 7.99004 17.1508 8.07596C17.3216 8.2477 17.4174 8.48004 17.4174 8.72221C17.4174 8.96438 17.3216 9.19671 17.1508 9.36846L12.9433 13.576C12.4277 14.0909 11.7287 14.3802 11 14.3802C10.2712 14.3802 9.57227 14.0909 9.05664 13.576L4.84914 9.36846C4.67979 9.19772 4.58432 8.96727 4.5833 8.72679C4.58261 8.60615 4.60573 8.48656 4.65135 8.37487C4.69697 8.26319 4.76418 8.16161 4.84914 8.07596C4.93435 7.99004 5.03574 7.92184 5.14744 7.87531C5.25915 7.82877 5.37896 7.80481 5.49997 7.80481C5.62098 7.80481 5.7408 7.82877 5.8525 7.87531C5.96421 7.92184 6.06559 7.99004 6.15081 8.07596L10.3491 12.2835Z"
+            fill="#4F2EE8"
+          />
+        </svg>
+      </button>
     </div>
   );
 };

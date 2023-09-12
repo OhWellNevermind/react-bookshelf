@@ -46,7 +46,7 @@ export const AllCategories = ({ setCategory, activeIndex, setActiveIndex }) => {
   }, []);
 
   return (
-    <ul className="flex flex-col w-[356px] gap-[32px] h-[452px] overflow-y-scroll min-w-[356px]">
+    <ul className="flex flex-col w-[307px] md:w-[309px] gap-[24px] h-[228px] md:h-[472px] overflow-y-scroll">
       {[...categories].map((category, index) => {
         return (
           <AllCategoriesItem

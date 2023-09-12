@@ -3,9 +3,9 @@ import React from 'react';
 export const BookListCategory = ({ setModalBookInfo, openModal, book }) => {
   return (
     <>
-      <div className="flex flex-col w-[180px] h-[306px]">
+      <div className="flex flex-col w-[335px] md:w-[218px] lg:w-[180px]">
         <img
-          className="mb-[14px] h-[256px] rounded-[8px] cursor-pointer"
+          className="mb-[14px] h-[485px] md:h-[316px] lg:h-[256px] rounded-[8px] cursor-pointer min-w-full"
           src={book.book_image}
           alt={book.description}
           onClick={() => {

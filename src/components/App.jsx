@@ -37,8 +37,8 @@ export const App = () => {
   return (
     <>
       <Header />
-      <main className="flex gap-[20px] px-6 py-6">
-        <div className="flex flex-col gap-[86px]">
+      <main className="flex flex-col lg:flex-row lg:items-start items-center gap-[20px] md:gap-[98px] lg:gap-5 px-5 pt-10">
+        <div className="flex flex-col md:flex-row lg:flex-col items-center gap-[40px] lg:gap-[86px]">
           <AllCategories
             setCategory={setCategory}
             activeIndex={activeCategoryIndex}
@@ -46,7 +46,7 @@ export const App = () => {
           />
           <SupportUkraine />
         </div>
-        <div className="ml-10">
+        <div className="flex flex-col items-center">
           <BookList
             setCategory={setCategory}
             currentCategory={category}
