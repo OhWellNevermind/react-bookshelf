@@ -77,8 +77,8 @@ export const BookList = ({
       ) : (
         <>{highlightLastWord(books[0]?.list_name)}</>
       )}
-      <ul className="flex flex-col flex-wrap w-[100%] lg:w-[996px]">
-        <div className="flex flex-wrap gap-y-[40px] gap-x-[24px] items-center justify-center">
+      <ul className="flex flex-col flex-wrap w-[100%] ">
+        <div className="flex flex-wrap flex-col gap-y-[40px] gap-x-[24px] items-center justify-center lg:justify-start">
           {books.map((category, index) => {
             return (
               <li className="flex flex-wrap" key={index}>
