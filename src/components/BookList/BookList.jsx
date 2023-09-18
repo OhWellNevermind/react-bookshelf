@@ -78,47 +78,57 @@ export const BookList = ({
         <>{highlightLastWord(books[0]?.list_name)}</>
       )}
       <ul className="flex flex-col flex-wrap w-[100%] ">
-        <div className="flex flex-wrap flex-col gap-y-[40px] gap-x-[24px] items-center justify-center lg:justify-start">
-          {books.map((category, index) => {
-            return (
-              <li className="flex flex-wrap" key={index}>
-                {currentCategory === 'All categories' && (
-                  <div className="flex flex-col">
-                    <p className="mb-[18px] text-[#B4AFAF] uppercase leading-[1.28] tracking-[0.42px] font-normal text-[14px]">
-                      {category.list_name}
-                    </p>
-                    <BookListAll
+        {currentCategory === 'All categories' ? (
+          <div className="flex flex-wrap flex-col gap-y-[40px] gap-x-[24px] items-center justify-center lg:justify-start">
+            {books.map((category, index) => {
+              return (
+                <li className="flex flex-wrap" key={index}>
+                  {currentCategory === 'All categories' && (
+                    <div className="flex flex-col">
+                      <p className="mb-[18px] text-[#B4AFAF] uppercase leading-[1.28] tracking-[0.42px] font-normal text-[14px]">
+                        {category.list_name}
+                      </p>
+                      <BookListAll
+                        setModalBookInfo={setModalBookInfo}
+                        openModal={setModalIsOpen}
+                        books={category.books}
+                        booksCount={booksCount}
+                      />
+                      <button
+                        onClick={evt => {
+                          setCategory(evt.currentTarget.value);
+                          setActiveIndex(index + 2);
+                        }}
+                        value={category.list_name}
+                        className="w-fit px-[28px] py-[14px] border-[2px] border-[#4F2EE8] rounded-[40px] place-self-end 
+                              hover:bg-[#4F2EE8] text-[#111] leading-[1.28] tracking-[-0.14] hover:text-[#fff] transition-all"
+                      >
+                        See more
+                      </button>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="flex flex-wrap gap-y-[40px] gap-x-[24px] items-center justify-center lg:justify-start ">
+            {books.map((category, index) => {
+              return (
+                <li>
+                  {!category.books && (
+                    <BookListCategory
                       setModalBookInfo={setModalBookInfo}
                       openModal={setModalIsOpen}
-                      books={category.books}
-                      booksCount={booksCount}
+                      key={index}
+                      book={category}
                     />
-                    <button
-                      onClick={evt => {
-                        setCategory(evt.currentTarget.value);
-                        setActiveIndex(index + 2);
-                      }}
-                      value={category.list_name}
-                      className="w-fit px-[28px] py-[14px] border-[2px] border-[#4F2EE8] rounded-[40px] place-self-end 
-                              hover:bg-[#4F2EE8] text-[#111] leading-[1.28] tracking-[-0.14] hover:text-[#fff] transition-all"
-                    >
-                      See more
-                    </button>
-                  </div>
-                )}
-
-                {!category.books && (
-                  <BookListCategory
-                    setModalBookInfo={setModalBookInfo}
-                    openModal={setModalIsOpen}
-                    key={index}
-                    book={category}
-                  />
-                )}
-              </li>
-            );
-          })}
-        </div>
+                  )}
+                </li>
+              );
+            })}
+          </div>
+        )}
       </ul>
       <BookModal
         onClose={closeModal}
