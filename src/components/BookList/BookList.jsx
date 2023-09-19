@@ -115,12 +115,11 @@ export const BookList = ({
           <div className="flex flex-wrap gap-y-[40px] gap-x-[24px] items-center justify-center lg:justify-start ">
             {books.map((category, index) => {
               return (
-                <li>
+                <li key={index}>
                   {!category.books && (
                     <BookListCategory
                       setModalBookInfo={setModalBookInfo}
                       openModal={setModalIsOpen}
-                      key={index}
                       book={category}
                     />
                   )}
