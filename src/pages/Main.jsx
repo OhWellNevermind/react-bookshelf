@@ -36,7 +36,7 @@ export const Main = () => {
   }, [category]);
 
   return (
-    <main className="flex flex-col lg:flex-row lg:items-start items-center gap-[20px] md:gap-[98px] lg:gap-5 px-5 pt-10">
+    <main className="flex flex-col lg:flex-row lg:items-start items-center gap-[20px] md:gap-[98px] lg:gap-5 px-5 pt-10 dark:bg-[#202024]">
       <div className="flex flex-col md:flex-row lg:flex-col items-center gap-[40px] lg:gap-[86px]">
         <AllCategories
           setCategory={setCategory}

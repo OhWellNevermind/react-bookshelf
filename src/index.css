@@ -26,3 +26,71 @@ body {
 .active-nav-link {
   @apply bg-[#EAC645] px-4 py-2 rounded-[36px];
 }
+
+.theme-switch__input {
+  opacity: 0;
+}
+
+.theme-switch__label {
+  position: relative;
+  display: block;
+}
+
+.theme-switch__input {
+  width: 40px;
+  position: absolute;
+  z-index: 10;
+}
+
+.theme-switch__label {
+  width: 40px;
+  height: 20px;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 200ms ease-in-out;
+}
+
+.theme-switch__label::before,
+.theme-switch__label::after {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  transform: translate3d(0, -50%, 0);
+}
+
+.switcher {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+}
+
+.switcher::after {
+  content: '';
+  position: absolute;
+  top: calc(100% + 11px);
+  left: 1px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    1px 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translate(0px);
+  transition: transform 200ms, background-color 200ms;
+}
+
+/* Checked label styles */
+.theme-switch__input:checked ~ .theme-switch__label {
+  background-color: lightSlateGray;
+}
+
+.theme-switch__input:checked ~ .theme-switch__label::after {
+  color: turquoise;
+}
+
+.theme-switch__input:checked ~ .theme-switch__label .switcher::after {
+  transform: translate(20px, 0);
+}

@@ -23,10 +23,10 @@ export const ShoppingList = () => {
   };
 
   return (
-    <main className="px-5 pt-10 pb-10 flex">
+    <main className="dark:bg-[#202024] px-5 pt-10 flex h-[100vh] ">
       <SupportUkraine page="shopping-list" className="hidden ml-10" />
       <div className="flex flex-col w-full">
-        <h2 className="mb-10 text-[#111] text-[32px] font-bold leading-[1.18] tracking-[-1.28]">
+        <h2 className="mb-10 text-[#111] dark:text-[#fff] text-[32px] font-bold leading-[1.18] tracking-[-1.28]">
           Shopping <span className="text-[#4F2EE8]">List</span>
         </h2>
         <ul className="flex flex-col gap-10">
@@ -35,7 +35,7 @@ export const ShoppingList = () => {
               return (
                 <li
                   key={book._id}
-                  className="w-full lg:w-[996px] border-[#4f2ee866] border-[2px] rounded-[16px] bg-[#fff] flex gap-[14px] md:gap-[24px]
+                  className="w-full lg:w-[996px] border-[#4f2ee866] border-[2px] rounded-[16px] bg-[#fff] dark:bg-[#111] flex gap-[14px] md:gap-[24px]
                   py-[14px] md:py-[24px] px-[14px] md:px-[24px] relative"
                 >
                   <div className="w-[100px] md:w-[116px] h-[142px] md:h-[165px]">
@@ -49,7 +49,7 @@ export const ShoppingList = () => {
                   <div className="flex flex-col justify-between">
                     <div>
                       <p
-                        className="text-[#111] text-[16px] font-bold tracking-[-0.64px] leading-[1.12] uppercase mb-1 
+                        className="text-[#111] dark:text-[#fff] text-[16px] font-bold tracking-[-0.64px] leading-[1.12] uppercase mb-1 
                       overflow-hidden text-ellipsis whitespace-nowrap max-w-[153px] md:max-w-none"
                       >
                         {book.title}
@@ -60,7 +60,7 @@ export const ShoppingList = () => {
                       >
                         {book.list_name}
                       </p>
-                      <p className="w-[193px] md:w-[508px] lg:w-[808px] h-[68px] md:h-[53px] overflow-y-auto text-[#111] leading-[1.28] tracking-[-0.56px]">
+                      <p className="w-[193px] md:w-[508px] lg:w-[808px] h-[68px] md:h-[53px] overflow-y-auto text-[#111] dark:text-[#fff] leading-[1.28] tracking-[-0.56px]">
                         {book.description ||
                           'Sorry, currently there is no description for that book.'}
                       </p>

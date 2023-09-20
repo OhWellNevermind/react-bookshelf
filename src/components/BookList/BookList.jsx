@@ -64,7 +64,7 @@ export const BookList = ({
     const activeWord = words[words.length - 1];
     words.splice(words.length - 1, 1);
     return (
-      <h2 className="text-[#111] text-[48px] font-bold leading-[52px] tracking-[-1.92px] mb-[40px] self-start">
+      <h2 className="text-[#111] dark:text-[#fff] text-[48px] font-bold leading-[52px] tracking-[-1.92px] mb-[40px] self-start">
         {words.join(' ')} <span className="text-[#4F2EE8]">{activeWord}</span>
       </h2>
     );
@@ -101,7 +101,7 @@ export const BookList = ({
                         }}
                         value={category.list_name}
                         className="w-fit px-[28px] py-[14px] border-[2px] border-[#4F2EE8] rounded-[40px] place-self-end 
-                              hover:bg-[#4F2EE8] text-[#111] leading-[1.28] tracking-[-0.14] hover:text-[#fff] transition-all"
+                              hover:bg-[#4F2EE8] text-[#111] dark:text-[#fff] leading-[1.28] tracking-[-0.14] hover:text-[#fff] transition-all"
                       >
                         See more
                       </button>

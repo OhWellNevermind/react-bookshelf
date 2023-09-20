@@ -30,7 +30,7 @@ export const BookListAll = ({
                 }}
               />
               <p
-                className="text-[#111] text-[16px] font-bold leading-[1.12] tracking-[-0.64px] mb-[4px] 
+                className="text-[#111] dark:text-[#fff] text-[16px] font-bold leading-[1.12] tracking-[-0.64px] mb-[4px] 
                                         overflow-hidden text-ellipsis whitespace-nowrap"
               >
                 {book.title}
