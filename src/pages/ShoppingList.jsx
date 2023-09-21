@@ -24,7 +24,7 @@ const ShoppingList = () => {
   };
 
   return (
-    <main className="dark:bg-[#202024] px-5 pt-10 flex pb-10">
+    <main className="dark:bg-[#202024] px-5 pt-10 flex pb-10 min-h-screen">
       <SupportUkraine page="shopping-list" className="hidden ml-10" />
       <div className="flex flex-col w-full h-full">
         <h2 className="text-[#111] dark:text-[#fff] text-[32px] font-bold leading-[1.18] tracking-[-1.28]">
