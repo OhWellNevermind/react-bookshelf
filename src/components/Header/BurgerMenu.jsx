@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { AiOutlineShopping } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
 import { NavBar } from './NavBar';
 
 export const BurgerMenu = ({ isOpen, setOpen }) => {
