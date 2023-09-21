@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-bookshelf/static/css/main.5502fbf4.css",
-    "main.js": "/react-bookshelf/static/js/main.215810a3.js",
+    "main.css": "/react-bookshelf/static/css/main.62f907ad.css",
+    "main.js": "/react-bookshelf/static/js/main.f0d2bdb4.js",
     "static/js/642.ff7159ab.chunk.js": "/react-bookshelf/static/js/642.ff7159ab.chunk.js",
     "static/js/845.41ab9844.chunk.js": "/react-bookshelf/static/js/845.41ab9844.chunk.js",
     "static/js/615.8f9c66b9.chunk.js": "/react-bookshelf/static/js/615.8f9c66b9.chunk.js",
@@ -13,8 +13,8 @@
     "static/media/medicalCorps@2x-3.png": "/react-bookshelf/static/media/medicalCorps@2x-3.3ac21e1ac5e8a7c76931.png",
     "static/media/medicus@2x-4.png": "/react-bookshelf/static/media/medicus@2x-4.c2041c63cb45d31da3d6.png",
     "index.html": "/react-bookshelf/index.html",
-    "main.5502fbf4.css.map": "/react-bookshelf/static/css/main.5502fbf4.css.map",
-    "main.215810a3.js.map": "/react-bookshelf/static/js/main.215810a3.js.map",
+    "main.62f907ad.css.map": "/react-bookshelf/static/css/main.62f907ad.css.map",
+    "main.f0d2bdb4.js.map": "/react-bookshelf/static/js/main.f0d2bdb4.js.map",
     "642.ff7159ab.chunk.js.map": "/react-bookshelf/static/js/642.ff7159ab.chunk.js.map",
     "845.41ab9844.chunk.js.map": "/react-bookshelf/static/js/845.41ab9844.chunk.js.map",
     "615.8f9c66b9.chunk.js.map": "/react-bookshelf/static/js/615.8f9c66b9.chunk.js.map",
@@ -23,7 +23,7 @@
     "325.0c2c01d5.chunk.js.map": "/react-bookshelf/static/js/325.0c2c01d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5502fbf4.css",
-    "static/js/main.215810a3.js"
+    "static/css/main.62f907ad.css",
+    "static/js/main.f0d2bdb4.js"
   ]
 }
