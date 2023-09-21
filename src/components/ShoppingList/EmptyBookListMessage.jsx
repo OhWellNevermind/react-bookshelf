@@ -11,7 +11,7 @@ const emptyImgUrl2x = new URL(
 
 export const EmptyBookListMessage = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-full">
+    <div className="flex flex-col items-center justify-center h-full pt-[120px]">
       <p className="text-[#00000099] dark:text-[#ffffff99] text-center mb-[14px] max-w-[349px] leading-[1.28] md:leading-[1.33] tracking-[-0.28px] md:tracking-[-0.36px]">
         This page is empty, add some books and proceed to order.
       </p>
