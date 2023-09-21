@@ -1,6 +1,7 @@
 import { ThemeContext } from 'components/contex/ThemeContext';
 import { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AiOutlineShopping } from 'react-icons/ai';
 import Switcher from './Switcher';
 
 export const Header = () => {
@@ -27,14 +28,19 @@ export const Header = () => {
             Home
           </NavLink>
           <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? 'active-nav-link dark:text-[#111] uppercase'
-                : 'px-4 py-2 uppercase'
-            }
+            className={({ isActive }) => {
+              const active = isActive
+                ? 'active-nav-link dark:text-[#111]'
+                : 'px-4 py-2';
+              return (
+                'uppercase flex justify-center items-center gap-1' +
+                ' ' +
+                active
+              );
+            }}
             to="/shopping-list"
           >
-            Shopping List
+            Shopping List <AiOutlineShopping size={20} />
           </NavLink>
         </nav>
       </div>
