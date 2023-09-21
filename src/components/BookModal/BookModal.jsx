@@ -26,7 +26,7 @@ export const BookModal = props => {
         setIsAdded(true);
       }
     });
-  }, [_id]);
+  }, [_id, theme]);
 
   const addToShoppingList = evt => {
     const book = JSON.parse(evt.currentTarget.value);
