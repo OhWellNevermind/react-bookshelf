@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <>
       <header className="bg-[#fff] dark:bg-[#111] dark:text-[#fff] flex w-[calc(100vw - 17px)] px-[24px] py-[24px] justify-between border-[1.5px] border-[#111111] dark:border-[#fff] rounded-b-[8px] relative">
-        <div className="flex gap-[76px]">
+        <div className="flex gap-[40px] lg:gap-[76px]">
           <NavLink to="/" className="flex justify-center items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export const Header = () => {
               </svg>
             </div>
           </NavLink>
-          <nav className="md:flex gap-6 hidden">
+          <nav className="md:flex gap-5 lg:gap-6 hidden">
             <NavBar />
           </nav>
         </div>
