@@ -1,24 +1,22 @@
 import { Route, Routes } from 'react-router-dom';
-import { Header } from './Header/Header';
 import { Toaster } from 'react-hot-toast';
-import { Main } from 'pages/Main';
-import { ShoppingList } from 'pages/ShoppingList';
-import { ThemeContext } from './contex/ThemeContext';
-import { useState } from 'react';
+import { lazy } from 'react';
+import { SharedLayout } from './SharedLayout';
+
+const Main = lazy(() => import('../pages/Main'));
+const ShoppingList = lazy(() => import('../pages/ShoppingList'));
 
 export const App = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'light');
   return (
     <>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main />} />
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Main />} />
           <Route path="/shopping-list" element={<ShoppingList />} />
-        </Routes>
+        </Route>
+      </Routes>
 
-        <Toaster position="top-right" />
-      </ThemeContext.Provider>
+      <Toaster position="top-right" />
     </>
   );
 };

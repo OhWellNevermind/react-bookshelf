@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { EmptyBookListMessage } from 'components/ShoppingList/EmptyBookListMessage';
 
-export const ShoppingList = () => {
+const ShoppingList = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -42,3 +42,5 @@ export const ShoppingList = () => {
     </main>
   );
 };
+
+export default ShoppingList;

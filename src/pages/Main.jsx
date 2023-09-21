@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 
-export const Main = () => {
+const Main = () => {
   const [books, setBooks] = useState([]);
   const [category, setCategory] = useState('All categories');
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(1);
@@ -57,3 +57,5 @@ export const Main = () => {
     </main>
   );
 };
+
+export default Main;
