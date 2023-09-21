@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/react-bookshelf/static/css/main.e7aa50b2.css",
-    "main.js": "/react-bookshelf/static/js/main.2ae96582.js",
+    "main.css": "/react-bookshelf/static/css/main.c0265791.css",
+    "main.js": "/react-bookshelf/static/js/main.64d6c76d.js",
+    "static/media/empty_shopping_list@2x.png": "/react-bookshelf/static/media/empty_shopping_list@2x.71606f3840d1f3f5f180.png",
+    "static/media/empty_shopping_list.png": "/react-bookshelf/static/media/empty_shopping_list.296d3167ef99b37c3ea4.png",
     "static/media/medicalCorps@2x-3.png": "/react-bookshelf/static/media/medicalCorps@2x-3.3ac21e1ac5e8a7c76931.png",
     "static/media/medicus@2x-4.png": "/react-bookshelf/static/media/medicus@2x-4.c2041c63cb45d31da3d6.png",
     "index.html": "/react-bookshelf/index.html",
-    "main.e7aa50b2.css.map": "/react-bookshelf/static/css/main.e7aa50b2.css.map",
-    "main.2ae96582.js.map": "/react-bookshelf/static/js/main.2ae96582.js.map"
+    "main.c0265791.css.map": "/react-bookshelf/static/css/main.c0265791.css.map",
+    "main.64d6c76d.js.map": "/react-bookshelf/static/js/main.64d6c76d.js.map"
   },
   "entrypoints": [
-    "static/css/main.e7aa50b2.css",
-    "static/js/main.2ae96582.js"
+    "static/css/main.c0265791.css",
+    "static/js/main.64d6c76d.js"
   ]
 }
