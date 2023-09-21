@@ -48,7 +48,6 @@ export const Header = () => {
         <div className="w-fit h-fit">
           <Switcher />
         </div>
-        <button className="sign-up-btn">Sign Up</button>
       </div>
     </header>
   );

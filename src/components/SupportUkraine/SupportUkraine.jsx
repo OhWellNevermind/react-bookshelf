@@ -135,7 +135,7 @@ export const SupportUkraine = ({ page }) => {
                           'brightness-0 invert hover:brightness-100 hover:invert-0',
                           height ? `h-[${height}]` : 'h-[32px]'
                         )}
-                        srcSet={`${img}, ${img2x}`}
+                        srcSet={`${img}, ${img2x} 2x`}
                         src={img}
                         alt={title}
                       />
