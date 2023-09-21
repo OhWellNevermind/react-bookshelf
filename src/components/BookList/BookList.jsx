@@ -132,6 +132,7 @@ export const BookList = ({
         onClose={closeModal}
         open={modalIsOpen}
         bookInfo={modalBookInfo}
+        setModalIsOpen={setModalIsOpen}
       />
     </>
   );

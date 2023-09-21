@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AiFillAmazonCircle } from 'react-icons/ai';
 import { IoBookSharp } from 'react-icons/io5';
 import { GiBookshelf } from 'react-icons/gi';
+import { AiOutlineClose } from 'react-icons/ai';
 import { Dialog } from '@mui/material';
 import { ThemeContext } from 'components/contex/ThemeContext';
 
-export const BookModal = props => {
-  const { onClose, bookInfo, open } = props;
+export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
   const [isAdded, setIsAdded] = useState(false);
   const { theme } = useContext(ThemeContext);
 
@@ -67,7 +67,14 @@ export const BookModal = props => {
           onClose={onClose}
           open={open}
         >
-          <div className="dark:bg-[#202024]  py-10 px-6 flex flex-col justify-center items-center">
+          <div className="dark:bg-[#202024] py-10 px-6 flex flex-col justify-center items-center relative">
+            <AiOutlineClose
+              onClick={() => {
+                setModalIsOpen(false);
+              }}
+              size={24}
+              className="fill-black dark:fill-white absolute top-3 md:top-6 right-3 md:right-6 cursor-pointer"
+            />
             <div className="flex flex-col md:flex-row gap-6 mb-10">
               <div className="w-[287px] h-[408px] self-center md:w-[192px] md:h-[281px]">
                 <img
@@ -77,7 +84,7 @@ export const BookModal = props => {
                 />
               </div>
               <div className="flex flex-col w-[287px]">
-                <h3 className="text-[#111] dark:text-[#fff] text-[16px] md:text-[24px] font-bold tracking-[-0.64px] md:tracking-[-0.96px] leading-[1.12] md:leading-[1.16] w-fit mb-2">
+                <h3 className="text-[#111] dark:text-[#fff] text-[16px] md:text-[24px] font-bold tracking-[-0.64px] md:tracking-[-0.96px] leading-[1.12] md:leading-[1.16] w-[262px] mb-2">
                   {title}
                 </h3>
                 <p className="text-[#B4AFAF] text-[12px] italic leading-[1.16] md:leading-[1.28] tracking-[-0.48px] md:tracking-[-0.56px] mb-5 w-fit">
@@ -88,7 +95,7 @@ export const BookModal = props => {
                     ? description
                     : 'Sorry, currently there is no description for that book.'}
                 </p>
-                <ul className="flex w-fit gap-[8px] md:gap-[16px] lg:gap-[20px]">
+                <ul className="flex justify-center w-fit gap-[8px] md:gap-[16px] lg:gap-[20px]">
                   <li>
                     <a
                       href={buy_links[0].url}
@@ -108,7 +115,7 @@ export const BookModal = props => {
                       rel="noreferrer noopener"
                     >
                       <IoBookSharp
-                        className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px]"
+                        className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px] self-end"
                         fill={`${theme === 'dark' ? '#fff' : '#111'}`}
                       />
                     </a>
