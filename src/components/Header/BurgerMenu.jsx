@@ -14,7 +14,7 @@ export const BurgerMenu = ({ isOpen, setOpen }) => {
   return (
     <div className={`burgerMenu md:hidden ${!isOpen && 'hideBurger'}`}>
       <nav className="h-full flex flex-col justify-center items-center gap-[18px]">
-        <NavBar />
+        <NavBar setOpen={setOpen} />
       </nav>
     </div>
   );

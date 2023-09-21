@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineShopping } from 'react-icons/ai';
 
-export const NavBar = () => {
+export const NavBar = ({ setOpen }) => {
   return (
     <>
       <NavLink
@@ -13,6 +13,9 @@ export const NavBar = () => {
         }
         end
         to="/"
+        onClick={() => {
+          setOpen(false);
+        }}
       >
         Home
       </NavLink>
@@ -27,6 +30,9 @@ export const NavBar = () => {
           );
         }}
         to="/shopping-list"
+        onClick={() => {
+          setOpen(false);
+        }}
       >
         Shopping List <AiOutlineShopping size={20} />
       </NavLink>
