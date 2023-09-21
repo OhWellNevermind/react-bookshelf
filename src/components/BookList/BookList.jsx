@@ -28,7 +28,6 @@ export const BookList = ({
 
   const setCount = () => {
     const currentWidth = window.outerWidth;
-    console.log(currentWidth);
     if (currentWidth < 767) {
       setBooksCount(0);
     } else if (currentWidth >= 768 && currentWidth < 1279) {

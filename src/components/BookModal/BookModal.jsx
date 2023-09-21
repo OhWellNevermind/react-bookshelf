@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AiFillAmazonCircle } from 'react-icons/ai';
+import { IoBookSharp } from 'react-icons/io5';
+import { GiBookshelf } from 'react-icons/gi';
 import { Dialog } from '@mui/material';
+import { ThemeContext } from 'components/contex/ThemeContext';
 
 export const BookModal = props => {
   const { onClose, bookInfo, open } = props;
   const [isAdded, setIsAdded] = useState(false);
+  const { theme } = useContext(ThemeContext);
 
   const { _id, author, book_image, description, buy_links, title } = bookInfo;
 
@@ -62,7 +67,7 @@ export const BookModal = props => {
           onClose={onClose}
           open={open}
         >
-          <div className="py-10 px-6 flex flex-col justify-center items-center">
+          <div className="dark:bg-[#202024]  py-10 px-6 flex flex-col justify-center items-center">
             <div className="flex flex-col md:flex-row gap-6 mb-10">
               <div className="w-[287px] h-[408px] self-center md:w-[192px] md:h-[281px]">
                 <img
@@ -72,26 +77,53 @@ export const BookModal = props => {
                 />
               </div>
               <div className="flex flex-col w-[287px]">
-                <h3 className="text-[#111] text-[16px] md:text-[24px] font-bold tracking-[-0.64px] md:tracking-[-0.96px] leading-[1.12] md:leading-[1.16] w-fit mb-2">
+                <h3 className="text-[#111] dark:text-[#fff] text-[16px] md:text-[24px] font-bold tracking-[-0.64px] md:tracking-[-0.96px] leading-[1.12] md:leading-[1.16] w-fit mb-2">
                   {title}
                 </h3>
                 <p className="text-[#B4AFAF] text-[12px] italic leading-[1.16] md:leading-[1.28] tracking-[-0.48px] md:tracking-[-0.56px] mb-5 w-fit">
                   {author}
                 </p>
-                <p className="w-[287px] md:w-[279px] max-h-[70px] overflow-y-auto text-[#111] text-[14px] leading-[1.28] tracking-[-0.56px] mb-5">
+                <p className="w-[287px] md:w-[279px] max-h-[70px] overflow-y-auto text-[#111] dark:text-[#fff] text-[14px] leading-[1.28] tracking-[-0.56px] mb-5">
                   {description
                     ? description
                     : 'Sorry, currently there is no description for that book.'}
                 </p>
-                <ul className="flex w-fit">
+                <ul className="flex w-fit gap-[19px]">
                   <li>
-                    <a href={buy_links[0].url}>{buy_links[0].name}</a>
+                    <a
+                      href={buy_links[0].url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <AiFillAmazonCircle
+                        size={32}
+                        fill={`${theme === 'dark' ? '#fff' : '#111'}`}
+                      />
+                    </a>
                   </li>
                   <li>
-                    <a href={buy_links[1].url}>{buy_links[1].name}</a>
+                    <a
+                      href={buy_links[1].url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <IoBookSharp
+                        size={32}
+                        fill={`${theme === 'dark' ? '#fff' : '#111'}`}
+                      />
+                    </a>
                   </li>
                   <li>
-                    <a href={buy_links[2].url}>{buy_links[2].name}</a>
+                    <a
+                      href={buy_links[2].url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <GiBookshelf
+                        size={32}
+                        fill={`${theme === 'dark' ? '#fff' : '#111'}`}
+                      />
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -99,11 +131,11 @@ export const BookModal = props => {
             {!isAdded ? (
               <button
                 className="border-2 py-[14px] px-7 w-fit md:w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
-                text-[#111] hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 flex justify-center items-center"
+                 hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 flex justify-center items-center"
                 value={JSON.stringify(bookInfo)}
                 onClick={addToShoppingList}
               >
-                <span className="block text-[#111] text-[14px] font-bold leading-[1.28] tracking-[-0.14px] w-fit whitespace-nowrap uppercase">
+                <span className="block text-[#111] dark:text-[#fff] text-[14px] font-bold leading-[1.28] tracking-[-0.14px] w-fit whitespace-nowrap uppercase">
                   Add to shopping lists
                 </span>
               </button>
@@ -111,15 +143,15 @@ export const BookModal = props => {
               <>
                 <button
                   className="border-2 py-[14px] px-7 w-fit md:w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
-                text-[#111] hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 mb-2 flex justify-center items-center"
+                 hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 mb-2 flex justify-center items-center"
                   value={JSON.stringify(bookInfo)}
                   onClick={removeFromShoppingList}
                 >
-                  <span className="block text-[#111] text-[14px] md:text-[18px] font-bold leading-[1.28] md:leading-[1.33] tracking-[-0.14px] md:tracking-[-0.18px] w-fit whitespace-nowrap uppercase">
+                  <span className="block text-[#111] dark:text-[#fff] text-[14px] md:text-[18px] font-bold leading-[1.28] md:leading-[1.33] tracking-[-0.14px] md:tracking-[-0.18px] w-fit whitespace-nowrap uppercase">
                     Remove from shopping lists
                   </span>
                 </button>
-                <p className="text-[#11111180] text-center text-[12px] tracking-[-0.48px] leading-[1.16] w-[242px] md:w-[324px]">
+                <p className="text-[#11111180] dark:text-[#ffffff80]  text-center text-[12px] tracking-[-0.48px] leading-[1.16] w-[242px] md:w-[324px]">
                   Сongratulations! You have added the book to the shopping list.
                   To delete, press the button “Remove from the shopping list”.
                 </p>

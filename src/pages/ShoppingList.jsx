@@ -1,11 +1,16 @@
 import { SupportUkraine } from 'components/SupportUkraine/SupportUkraine';
-import React from 'react';
+import { ThemeContext } from 'components/contex/ThemeContext';
+import React, { useContext } from 'react';
+import { AiFillAmazonCircle } from 'react-icons/ai';
+import { IoBookSharp } from 'react-icons/io5';
+import { GiBookshelf } from 'react-icons/gi';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { TbTrash } from 'react-icons/tb';
 
 export const ShoppingList = () => {
   const [books, setBooks] = useState([]);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     setBooks(JSON.parse(localStorage.getItem('books')));
@@ -46,7 +51,7 @@ export const ShoppingList = () => {
                     />
                   </div>
 
-                  <div className="flex flex-col justify-between">
+                  <div className="flex flex-col justify-between w-full">
                     <div>
                       <p
                         className="text-[#111] dark:text-[#fff] text-[16px] font-bold tracking-[-0.64px] leading-[1.12] uppercase mb-1 
@@ -60,16 +65,53 @@ export const ShoppingList = () => {
                       >
                         {book.list_name}
                       </p>
-                      <p className="w-[193px] md:w-[508px] lg:w-[808px] h-[68px] md:h-[53px] overflow-y-auto text-[#111] dark:text-[#fff] leading-[1.28] tracking-[-0.56px]">
+                      <p className="max-w-[193px] md:w-[508px] lg:w-[808px] h-[68px] md:h-[53px] overflow-y-auto text-[#111] dark:text-[#fff] leading-[1.28] tracking-[-0.56px]">
                         {book.description ||
                           'Sorry, currently there is no description for that book.'}
                       </p>
                     </div>
-                    <div>
+                    <div className="w-full flex justify-between items-center">
                       <p className="text-[#B4AFAF] italic text-[12px] leading-[1.16] tracking-[-0.48px]">
                         {book.author}
                       </p>
-                      <ul></ul>
+                      <ul className="flex w-fit gap-[19px]">
+                        <li>
+                          <a
+                            href={book.buy_links[0].url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                          >
+                            <AiFillAmazonCircle
+                              size={32}
+                              fill={`${theme === 'dark' ? '#fff' : '#111'}`}
+                            />
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href={book.buy_links[1].url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                          >
+                            <IoBookSharp
+                              size={32}
+                              fill={`${theme === 'dark' ? '#fff' : '#111'}`}
+                            />
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href={book.buy_links[2].url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                          >
+                            <GiBookshelf
+                              size={32}
+                              fill={`${theme === 'dark' ? '#fff' : '#111'}`}
+                            />
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                   <button

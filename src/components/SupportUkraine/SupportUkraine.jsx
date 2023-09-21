@@ -90,11 +90,6 @@ export const SupportUkraine = ({ page }) => {
   };
 
   const checkScrollPosition = () => {
-    console.log(
-      list.current.scrollHeight,
-      list.current.scrollTop,
-      list.current.clientHeight
-    );
     if (
       list.current.scrollHeight -
         list.current.scrollTop -
@@ -127,7 +122,7 @@ export const SupportUkraine = ({ page }) => {
           </p>
           <ul
             ref={list}
-            className=" flex flex-col gap-5 h-[188px] md:h-[292px] w-[159px] overflow-y-auto mb-6"
+            className=" flex flex-col gap-5 h-[188px] md:h-[292px] w-[159px] overflow-y-hidden mb-6"
           >
             {supporters.map(({ title, url, img, img2x, idx, height }) => {
               return (
