@@ -74,7 +74,7 @@ export const ShoppingList = () => {
                       <p className="text-[#B4AFAF] italic text-[12px] leading-[1.16] tracking-[-0.48px]">
                         {book.author}
                       </p>
-                      <ul className="flex w-fit gap-[19px]">
+                      <ul className="flex w-fit gap-[8px] md:gap-[16px] lg:gap-[20px]">
                         <li>
                           <a
                             href={book.buy_links[0].url}

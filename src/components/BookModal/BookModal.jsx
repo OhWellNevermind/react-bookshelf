@@ -88,7 +88,7 @@ export const BookModal = props => {
                     ? description
                     : 'Sorry, currently there is no description for that book.'}
                 </p>
-                <ul className="flex w-fit gap-[19px]">
+                <ul className="flex w-fit gap-[8px] md:gap-[16px] lg:gap-[20px]">
                   <li>
                     <a
                       href={buy_links[0].url}
@@ -96,7 +96,7 @@ export const BookModal = props => {
                       rel="noreferrer noopener"
                     >
                       <AiFillAmazonCircle
-                        size={32}
+                        className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px]"
                         fill={`${theme === 'dark' ? '#fff' : '#111'}`}
                       />
                     </a>
@@ -108,7 +108,7 @@ export const BookModal = props => {
                       rel="noreferrer noopener"
                     >
                       <IoBookSharp
-                        size={32}
+                        className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px]"
                         fill={`${theme === 'dark' ? '#fff' : '#111'}`}
                       />
                     </a>
@@ -120,7 +120,7 @@ export const BookModal = props => {
                       rel="noreferrer noopener"
                     >
                       <GiBookshelf
-                        size={32}
+                        className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px]"
                         fill={`${theme === 'dark' ? '#fff' : '#111'}`}
                       />
                     </a>
