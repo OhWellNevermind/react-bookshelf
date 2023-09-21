@@ -1,17 +1,29 @@
 {
   "files": {
-    "main.css": "/react-bookshelf/static/css/main.c0265791.css",
-    "main.js": "/react-bookshelf/static/js/main.64d6c76d.js",
+    "main.css": "/react-bookshelf/static/css/main.6c1c57b5.css",
+    "main.js": "/react-bookshelf/static/js/main.9430a187.js",
+    "static/js/642.bb91034a.chunk.js": "/react-bookshelf/static/js/642.bb91034a.chunk.js",
+    "static/js/845.364a70f2.chunk.js": "/react-bookshelf/static/js/845.364a70f2.chunk.js",
+    "static/js/615.8f9c66b9.chunk.js": "/react-bookshelf/static/js/615.8f9c66b9.chunk.js",
+    "static/js/742.a1156b92.chunk.js": "/react-bookshelf/static/js/742.a1156b92.chunk.js",
+    "static/js/578.1e28df31.chunk.js": "/react-bookshelf/static/js/578.1e28df31.chunk.js",
+    "static/js/325.0c2c01d5.chunk.js": "/react-bookshelf/static/js/325.0c2c01d5.chunk.js",
     "static/media/empty_shopping_list@2x.png": "/react-bookshelf/static/media/empty_shopping_list@2x.71606f3840d1f3f5f180.png",
     "static/media/empty_shopping_list.png": "/react-bookshelf/static/media/empty_shopping_list.296d3167ef99b37c3ea4.png",
     "static/media/medicalCorps@2x-3.png": "/react-bookshelf/static/media/medicalCorps@2x-3.3ac21e1ac5e8a7c76931.png",
     "static/media/medicus@2x-4.png": "/react-bookshelf/static/media/medicus@2x-4.c2041c63cb45d31da3d6.png",
     "index.html": "/react-bookshelf/index.html",
-    "main.c0265791.css.map": "/react-bookshelf/static/css/main.c0265791.css.map",
-    "main.64d6c76d.js.map": "/react-bookshelf/static/js/main.64d6c76d.js.map"
+    "main.6c1c57b5.css.map": "/react-bookshelf/static/css/main.6c1c57b5.css.map",
+    "main.9430a187.js.map": "/react-bookshelf/static/js/main.9430a187.js.map",
+    "642.bb91034a.chunk.js.map": "/react-bookshelf/static/js/642.bb91034a.chunk.js.map",
+    "845.364a70f2.chunk.js.map": "/react-bookshelf/static/js/845.364a70f2.chunk.js.map",
+    "615.8f9c66b9.chunk.js.map": "/react-bookshelf/static/js/615.8f9c66b9.chunk.js.map",
+    "742.a1156b92.chunk.js.map": "/react-bookshelf/static/js/742.a1156b92.chunk.js.map",
+    "578.1e28df31.chunk.js.map": "/react-bookshelf/static/js/578.1e28df31.chunk.js.map",
+    "325.0c2c01d5.chunk.js.map": "/react-bookshelf/static/js/325.0c2c01d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0265791.css",
-    "static/js/main.64d6c76d.js"
+    "static/css/main.6c1c57b5.css",
+    "static/js/main.9430a187.js"
   ]
 }
