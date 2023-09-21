@@ -11,7 +11,7 @@ export const SharedLayout = () => {
       <Header />
       <Suspense
         fallback={
-          <div className="w-[100vw] h-[100vh] flex justify-center items-center bg-black">
+          <div className="w-[100vw] h-[100vh] flex justify-center items-center bg-white dark:bg-[#202024]">
             <PuffLoader color="#36d7b7" loading={true} size={100} />
           </div>
         }
