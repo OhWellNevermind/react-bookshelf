@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-bookshelf/static/css/main.e7aa50b2.css",
-    "main.js": "/react-bookshelf/static/js/main.431cf4c3.js",
+    "main.js": "/react-bookshelf/static/js/main.2ae96582.js",
     "static/media/medicalCorps@2x-3.png": "/react-bookshelf/static/media/medicalCorps@2x-3.3ac21e1ac5e8a7c76931.png",
     "static/media/medicus@2x-4.png": "/react-bookshelf/static/media/medicus@2x-4.c2041c63cb45d31da3d6.png",
     "index.html": "/react-bookshelf/index.html",
     "main.e7aa50b2.css.map": "/react-bookshelf/static/css/main.e7aa50b2.css.map",
-    "main.431cf4c3.js.map": "/react-bookshelf/static/js/main.431cf4c3.js.map"
+    "main.2ae96582.js.map": "/react-bookshelf/static/js/main.2ae96582.js.map"
   },
   "entrypoints": [
     "static/css/main.e7aa50b2.css",
-    "static/js/main.431cf4c3.js"
+    "static/js/main.2ae96582.js"
   ]
 }
