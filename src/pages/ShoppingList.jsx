@@ -82,7 +82,7 @@ export const ShoppingList = () => {
                             rel="noreferrer noopener"
                           >
                             <AiFillAmazonCircle
-                              size={32}
+                              className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px]"
                               fill={`${theme === 'dark' ? '#fff' : '#111'}`}
                             />
                           </a>
@@ -94,7 +94,7 @@ export const ShoppingList = () => {
                             rel="noreferrer noopener"
                           >
                             <IoBookSharp
-                              size={32}
+                              className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px]"
                               fill={`${theme === 'dark' ? '#fff' : '#111'}`}
                             />
                           </a>
@@ -106,7 +106,7 @@ export const ShoppingList = () => {
                             rel="noreferrer noopener"
                           >
                             <GiBookshelf
-                              size={32}
+                              className="w-[16px] md:w-[28px] lg:w-[32px] h-[16px] md:h-[28px] lg:h-[32px]"
                               fill={`${theme === 'dark' ? '#fff' : '#111'}`}
                             />
                           </a>
