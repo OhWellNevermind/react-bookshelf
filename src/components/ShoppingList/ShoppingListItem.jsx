@@ -14,7 +14,7 @@ export const ShoppingListItem = ({ book, removeFromShoppingList }) => {
       className="w-full lg:w-[996px] border-[#4f2ee866] border-[2px] rounded-[16px] bg-[#fff] dark:bg-[#111] flex gap-[14px] md:gap-[24px]
                   py-[14px] md:py-[24px] px-[14px] md:px-[24px] relative"
     >
-      <div className="w-[100px] md:w-[116px] h-[142px] md:h-[165px]">
+      <div className="min-w-[100px] md:min-w-[116px] h-[142px] md:h-[165px]">
         <img
           className="w-full h-full"
           src={book.book_image}
