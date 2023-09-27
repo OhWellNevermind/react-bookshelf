@@ -7,9 +7,7 @@ export const NavBar = ({ setOpen }) => {
     <>
       <NavLink
         className={({ isActive }) =>
-          isActive
-            ? 'active-nav-link dark:text-[#111] uppercase'
-            : 'px-4 py-2 uppercase'
+          isActive ? 'active-nav-link dark:text-[#111] uppercase' : ' uppercase'
         }
         end
         to="/"
@@ -21,9 +19,7 @@ export const NavBar = ({ setOpen }) => {
       </NavLink>
       <NavLink
         className={({ isActive }) => {
-          const active = isActive
-            ? 'active-nav-link dark:text-[#111]'
-            : 'px-4 py-2';
+          const active = isActive ? 'active-nav-link dark:text-[#111]' : '';
           return (
             // eslint-disable-next-line no-useless-concat
             'uppercase flex justify-center items-center gap-1' + ' ' + active

@@ -2,17 +2,28 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { RiMenu2Fill } from 'react-icons/ri';
+import { HiMiniArrowLongRight } from 'react-icons/hi2';
 
 import Switcher from './Switcher';
 import { BurgerMenu } from './BurgerMenu';
 import { NavBar } from './NavBar';
+import { SignUpModal } from 'components/SignUpModal/SignUpModal';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   return (
     <>
-      <header className="bg-[#fff] dark:bg-[#111] dark:text-[#fff] flex w-[calc(100vw - 17px)] px-[24px] py-[24px] justify-between border-[1.5px] border-[#111111] dark:border-[#fff] rounded-b-[8px] relative">
+      <header
+        className="bg-[#fff] dark:bg-[#111] dark:text-[#fff] flex 
+      w-[calc(100vw - 17px)] px-[24px] py-[19px] justify-between border-[1.5px] border-[#111111] dark:border-[#fff]
+      rounded-b-[8px] relative h-[72px]"
+      >
         <div className="flex gap-[40px] lg:gap-[76px]">
           <NavLink to="/" className="flex justify-center items-center gap-2">
             <svg
@@ -66,13 +77,25 @@ export const Header = () => {
               </svg>
             </div>
           </NavLink>
-          <nav className="md:flex gap-5 lg:gap-6 hidden">
+          <nav className="md:flex md:gap-5 lg:gap-6 hidden h-[34px] items-center">
             <NavBar />
           </nav>
         </div>
         <div className="flex gap-[20px] justify-center items-center">
-          <div className="w-fit h-fit">
+          <div className="w-fit h-fit flex items-center">
             <Switcher />
+            <button
+              className="ml-6 w-[164px] p-[14px] bg-[#4F2EE8] border-[#111] dark:border-[#fff] 
+                         border-[1.5px] rounded-[18px]"
+              onClick={() => {
+                setModalIsOpen(true);
+              }}
+            >
+              <span className="flex justify-between items-center text-white">
+                Sign Up
+                <HiMiniArrowLongRight size={20} fill="#EAC645" />
+              </span>
+            </button>
           </div>
           {!open ? (
             <RiMenu2Fill
@@ -94,6 +117,11 @@ export const Header = () => {
         </div>
       </header>
       <BurgerMenu isOpen={open} setOpen={setOpen} />
+      <SignUpModal
+        onOpen={setModalIsOpen}
+        onClose={closeModal}
+        isOpen={modalIsOpen}
+      />
     </>
   );
 };
