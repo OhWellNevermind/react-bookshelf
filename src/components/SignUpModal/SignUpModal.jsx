@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Dialog, Backdrop } from '@mui/material';
 import { AiOutlineClose } from 'react-icons/ai';
 import { MdOutlineMailOutline } from 'react-icons/md';
