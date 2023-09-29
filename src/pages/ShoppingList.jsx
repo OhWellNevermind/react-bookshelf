@@ -30,7 +30,7 @@ const ShoppingList = () => {
         <h2 className="text-[#111] dark:text-[#fff] text-[32px] font-bold leading-[1.18] tracking-[-1.28]">
           Shopping <span className="text-[#4F2EE8]">List</span>
         </h2>
-        {books.length ? (
+        {books?.length ? (
           <ShoppingBookList
             books={books}
             removeFromShoppingList={removeFromShoppingList}

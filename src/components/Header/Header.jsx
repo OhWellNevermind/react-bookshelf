@@ -7,7 +7,7 @@ import Switcher from './Switcher';
 import { BurgerMenu } from './BurgerMenu';
 import { NavBar } from './NavBar';
 import { SignUpModal } from 'components/SignUpModal/SignUpModal';
-import { auth } from 'authorization';
+import { auth } from 'js/authorization';
 import { onAuthStateChanged } from 'firebase/auth';
 import DropDownMenu from './DropDownMenu';
 import { SignUpButton } from './SignUpButton';

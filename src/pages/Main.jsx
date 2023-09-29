@@ -1,4 +1,4 @@
-import { fetchBookByCategory } from 'api';
+import { fetchBookByCategory } from 'js/api';
 import { AllCategories } from 'components/AllCategories/AllCategories';
 import { BookList } from 'components/BookList/BookList';
 import { SupportUkraine } from 'components/SupportUkraine/SupportUkraine';

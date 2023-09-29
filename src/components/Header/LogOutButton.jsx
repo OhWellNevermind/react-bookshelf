@@ -1,4 +1,4 @@
-import { userSignOut } from 'authorization';
+import { userSignOut } from 'js/authorization';
 import React from 'react';
 import { HiMiniArrowLongRight } from 'react-icons/hi2';
 

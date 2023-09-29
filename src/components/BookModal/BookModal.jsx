@@ -5,11 +5,14 @@ import { GiBookshelf } from 'react-icons/gi';
 import { AiOutlineClose } from 'react-icons/ai';
 import { Dialog } from '@mui/material';
 import { ThemeContext } from 'components/contex/ThemeContext';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from 'js/authorization';
+import { writeUserData } from 'js/db';
 
 export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
   const [isAdded, setIsAdded] = useState(false);
   const { theme } = useContext(ThemeContext);
-
+  const [user] = useAuthState(auth);
   const { _id, author, book_image, description, buy_links, title } = bookInfo;
 
   useEffect(() => {
@@ -36,6 +39,7 @@ export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
     if (savedBooks !== null) {
       const newBooks = [...JSON.parse(savedBooks), book];
       localStorage.setItem('books', JSON.stringify(newBooks));
+      writeUserData(user.uid, newBooks);
       return;
     }
     localStorage.setItem('books', JSON.stringify(book));
@@ -45,10 +49,10 @@ export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
     const book = JSON.parse(evt.currentTarget.value);
     const savedBooks = [...JSON.parse(localStorage.getItem('books'))];
 
-    localStorage.setItem(
-      'books',
-      JSON.stringify(savedBooks.filter(savedBook => savedBook._id !== book._id))
-    );
+    const newBooks = savedBooks.filter(savedBook => savedBook._id !== book._id);
+
+    localStorage.setItem('books', JSON.stringify(newBooks));
+    writeUserData(user.uid, newBooks);
 
     setIsAdded(false);
   };
@@ -135,34 +139,41 @@ export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
                 </ul>
               </div>
             </div>
-            {!isAdded ? (
-              <button
-                className="border-2 py-[14px] px-7 w-fit md:w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
-                 hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 flex justify-center items-center"
-                value={JSON.stringify(bookInfo)}
-                onClick={addToShoppingList}
-              >
-                <span className="block text-[#111] dark:text-[#fff] text-[14px] font-bold leading-[1.28] tracking-[-0.14px] w-fit whitespace-nowrap uppercase">
-                  Add to shopping lists
-                </span>
-              </button>
-            ) : (
-              <>
+            {user ? (
+              !isAdded ? (
                 <button
                   className="border-2 py-[14px] px-7 w-fit md:w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
-                 hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 mb-2 flex justify-center items-center"
+                 hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 flex justify-center items-center"
                   value={JSON.stringify(bookInfo)}
-                  onClick={removeFromShoppingList}
+                  onClick={addToShoppingList}
                 >
-                  <span className="block text-[#111] dark:text-[#fff] text-[14px] md:text-[18px] font-bold leading-[1.28] md:leading-[1.33] tracking-[-0.14px] md:tracking-[-0.18px] w-fit whitespace-nowrap uppercase">
-                    Remove from shopping lists
+                  <span className="block text-[#111] dark:text-[#fff] text-[14px] font-bold leading-[1.28] tracking-[-0.14px] w-fit whitespace-nowrap uppercase">
+                    Add to shopping lists
                   </span>
                 </button>
-                <p className="text-[#11111180] dark:text-[#ffffff80]  text-center text-[12px] tracking-[-0.48px] leading-[1.16] w-[242px] md:w-[324px]">
-                  Сongratulations! You have added the book to the shopping list.
-                  To delete, press the button “Remove from the shopping list”.
-                </p>
-              </>
+              ) : (
+                <>
+                  <button
+                    className="border-2 py-[14px] px-7 w-fit md:w-[500px] border-[#4F2EE8] rounded-[40px] uppercase 
+                 hover:text-[#fff] hover:bg-[#4F2EE8] ease-in duration-200 mb-2 flex justify-center items-center"
+                    value={JSON.stringify(bookInfo)}
+                    onClick={removeFromShoppingList}
+                  >
+                    <span className="block text-[#111] dark:text-[#fff] text-[14px] md:text-[18px] font-bold leading-[1.28] md:leading-[1.33] tracking-[-0.14px] md:tracking-[-0.18px] w-fit whitespace-nowrap uppercase">
+                      Remove from shopping lists
+                    </span>
+                  </button>
+                  <p className="text-[#11111180] dark:text-[#ffffff80]  text-center text-[12px] tracking-[-0.48px] leading-[1.16] w-[242px] md:w-[324px]">
+                    Сongratulations! You have added the book to the shopping
+                    list. To delete, press the button “Remove from the shopping
+                    list”.
+                  </p>
+                </>
+              )
+            ) : (
+              <p className="text-[#11111180] dark:text-[#ffffff80]  text-center text-[15px] tracking-[-0.48px] leading-[1.16] w-full">
+                You need to sign up to be able to add books to shopping list!
+              </p>
             )}
           </div>
         </Dialog>

@@ -7,7 +7,7 @@ import { MenuItem as BaseMenuItem } from '@mui/base/MenuItem';
 import { Dropdown } from '@mui/base/Dropdown';
 import { BiSolidDownArrow, BiSolidUser } from 'react-icons/bi';
 import { HiMiniArrowLongRight } from 'react-icons/hi2';
-import { userSignOut } from 'authorization';
+import { userSignOut } from 'js/authorization';
 
 export default function DropDownMenu({ name, setUsername }) {
   return (

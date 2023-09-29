@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AllCategoriesItem } from './AllCategoriesItem';
-import { fetchCategories } from 'api';
+import { fetchCategories } from 'js/api';
 import { toast } from 'react-hot-toast';
 
 export const AllCategories = ({ setCategory, activeIndex, setActiveIndex }) => {

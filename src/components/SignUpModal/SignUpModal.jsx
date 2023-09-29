@@ -5,7 +5,7 @@ import { MdOutlineMailOutline } from 'react-icons/md';
 import { BiLockAlt } from 'react-icons/bi';
 import { ThemeContext } from 'components/contex/ThemeContext';
 import { SignUpModalInput } from './SignUpModalInput';
-import { userSignIn, userSignUp } from 'authorization';
+import { userSignIn, userSignUp } from 'js/authorization';
 
 export const SignUpModal = ({ onOpen, onClose, isOpen, setUsername }) => {
   const [isSignUp, setIsSignUp] = useState(true);
