@@ -23,6 +23,19 @@ body {
   background-color: #f6f6f6;
 }
 
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#111] dark:bg-white rounded-[30px];
+}
+
 .active-nav-link {
   @apply bg-[#EAC645] px-4 py-2 rounded-[36px];
 }
