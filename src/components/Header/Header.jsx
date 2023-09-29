@@ -1,21 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import { RiMenu2Fill } from 'react-icons/ri';
-import { HiMiniArrowLongRight } from 'react-icons/hi2';
 
 import Switcher from './Switcher';
 import { BurgerMenu } from './BurgerMenu';
 import { NavBar } from './NavBar';
 import { SignUpModal } from 'components/SignUpModal/SignUpModal';
+import { auth } from 'authorization';
+import { onAuthStateChanged } from 'firebase/auth';
+import DropDownMenu from './DropDownMenu';
+import { SignUpButton } from './SignUpButton';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  const [username, setUsername] = useState('');
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
+  useEffect(() => {
+    try {
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          setUsername(user.displayName);
+        }
+      });
+    } catch (error) {}
+  }, []);
 
   return (
     <>
@@ -84,18 +97,13 @@ export const Header = () => {
         <div className="flex gap-[20px] justify-center items-center">
           <div className="w-fit h-fit flex items-center">
             <Switcher />
-            <button
-              className="ml-6 w-[164px] p-[14px] bg-[#4F2EE8] border-[#111] dark:border-[#fff] 
-                         border-[1.5px] rounded-[18px]"
-              onClick={() => {
-                setModalIsOpen(true);
-              }}
-            >
-              <span className="flex justify-between items-center text-white">
-                Sign Up
-                <HiMiniArrowLongRight size={20} fill="#EAC645" />
-              </span>
-            </button>
+            <div className="hidden md:block">
+              {username ? (
+                <DropDownMenu name={username} setUsername={setUsername} />
+              ) : (
+                <SignUpButton setModalIsOpen={setModalIsOpen} />
+              )}
+            </div>
           </div>
           {!open ? (
             <RiMenu2Fill
@@ -116,8 +124,15 @@ export const Header = () => {
           )}
         </div>
       </header>
-      <BurgerMenu isOpen={open} setOpen={setOpen} />
+      <BurgerMenu
+        username={username}
+        isOpen={open}
+        setOpen={setOpen}
+        setModalIsOpen={setModalIsOpen}
+        setUsername={setUsername}
+      />
       <SignUpModal
+        setUsername={setUsername}
         onOpen={setModalIsOpen}
         onClose={closeModal}
         isOpen={modalIsOpen}

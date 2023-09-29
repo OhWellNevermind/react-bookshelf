@@ -1,12 +1,13 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Dialog, Backdrop } from '@mui/material';
 import { AiOutlineClose } from 'react-icons/ai';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { BiLockAlt } from 'react-icons/bi';
 import { ThemeContext } from 'components/contex/ThemeContext';
 import { SignUpModalInput } from './SignUpModalInput';
+import { userSignIn, userSignUp } from 'authorization';
 
-export const SignUpModal = ({ onOpen, onClose, isOpen }) => {
+export const SignUpModal = ({ onOpen, onClose, isOpen, setUsername }) => {
   const [isSignUp, setIsSignUp] = useState(true);
   const { theme } = useContext(ThemeContext);
 
@@ -40,7 +41,24 @@ export const SignUpModal = ({ onOpen, onClose, isOpen }) => {
             onClose();
           }}
         />
-        <form className="flex flex-col gap-7">
+        <form
+          className="flex flex-col gap-7"
+          onSubmit={async e => {
+            e.preventDefault();
+            if (isSignUp) {
+              const { username, email, password } = e.target.elements;
+              await userSignUp(username.value, email.value, password.value);
+              setUsername(username.value);
+              onClose();
+            } else {
+              const { email, password } = e.target.elements;
+              const user = await userSignIn(email.value, password.value);
+              console.log(user);
+              setUsername(user.user.displayName);
+              onClose();
+            }
+          }}
+        >
           {isSignUp && (
             <label>
               <SignUpModalInput placeholder="NAME" name="username" />

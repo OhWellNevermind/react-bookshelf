@@ -30,6 +30,7 @@ body {
 .burgerMenu {
   z-index: 50;
   width: 100vw;
+  min-width: 335px;
   height: 100vh;
   background: linear-gradient(#4f2ee8 0%, #fff 130%);
   position: fixed;
