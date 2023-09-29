@@ -48,7 +48,7 @@ export async function userSignUp(username, email, password) {
 
 export async function userSignIn(email, password) {
   try {
-    return await signInWithEmailAndPassword(auth, email, password);
+    await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.log(error);
   }
