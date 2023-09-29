@@ -7,8 +7,9 @@ export const LogOutButton = ({ setUsername }) => {
     <button
       onClick={() => {
         userSignOut();
+        setUsername('');
       }}
-      className="list-none w-fit bg-white border-[#111] border-[1.5px] rounded-[18px] flex p-[15px]"
+      className="list-none w-fit bg-white border-[#111] border-[1.5px] rounded-[18px] flex p-[15px] mt-auto"
     >
       <span className="mr-[90px]">Log out</span>
       <HiMiniArrowLongRight size={20} fill="#EAC645" />

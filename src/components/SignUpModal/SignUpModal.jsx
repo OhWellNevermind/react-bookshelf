@@ -53,8 +53,9 @@ export const SignUpModal = ({ onOpen, onClose, isOpen, setUsername }) => {
             } else {
               const { email, password } = e.target.elements;
               const user = await userSignIn(email.value, password.value);
-              console.log(user);
-              setUsername(user.user.displayName);
+              if (user) {
+                setUsername(user.user.displayName);
+              }
               onClose();
             }
           }}
