@@ -14,7 +14,7 @@ export const SignUpModal = ({ onOpen, onClose, isOpen, setUsername }) => {
   return (
     <Dialog
       sx={{
-        '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
+        '& .MuiPaper-root': {
           borderColor: `${theme === 'dark' ? '#fff' : '#111'}`,
           borderRadius: '18px',
           borderWidth: '2px',
