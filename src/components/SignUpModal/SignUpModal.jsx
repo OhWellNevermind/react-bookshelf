@@ -13,7 +13,6 @@ export const SignUpModal = ({ onOpen, onClose, isOpen, setUsername }) => {
 
   return (
     <Dialog
-      className="w-full max-w-[579px]"
       sx={{
         '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
           borderColor: `${theme === 'dark' ? '#fff' : '#111'}`,
