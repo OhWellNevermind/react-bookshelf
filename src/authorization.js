@@ -49,8 +49,20 @@ export async function userSignUp(username, email, password) {
 export async function userSignIn(email, password) {
   try {
     return await signInWithEmailAndPassword(auth, email, password);
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    if (e.code === 'auth/invalid-email') {
+      toast.error('Invalid email. Please try again!');
+      return;
+    } else if (e.code === 'auth/wrong-password') {
+      toast.error('Wrong password. Please try again!');
+      return;
+    } else if (e.code === 'auth/invalid-login-credentials') {
+      toast.error('Invalid email. Please try again!');
+      return;
+    } else {
+      console.log(e);
+      return;
+    }
   }
 }
 

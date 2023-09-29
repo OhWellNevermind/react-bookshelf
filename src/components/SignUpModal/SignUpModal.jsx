@@ -55,8 +55,8 @@ export const SignUpModal = ({ onOpen, onClose, isOpen, setUsername }) => {
               const user = await userSignIn(email.value, password.value);
               if (user) {
                 setUsername(user.user.displayName);
+                onClose();
               }
-              onClose();
             }
           }}
         >
