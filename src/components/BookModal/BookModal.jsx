@@ -59,11 +59,12 @@ export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
 
   return (
     <>
+      {console.log(theme)}
       {Object.keys(bookInfo).length ? (
         <Dialog
           sx={{
             '& .css-1t1j96h-MuiPaper-root-MuiDialog-paper': {
-              borderColor: '#111',
+              borderColor: `${theme !== 'dark' ? '#111' : '#fff'}`,
               borderRadius: '18px',
               borderWidth: '2px',
             },
