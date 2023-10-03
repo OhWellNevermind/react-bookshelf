@@ -14,7 +14,7 @@ const ShoppingList = () => {
 
   useEffect(() => {
     async function getBooks() {
-      setBooks(Object.values(await getUsersBooks(user?.uid)));
+      setBooks(Object.values((await getUsersBooks(user?.uid)) ?? []));
     }
     getBooks();
   }, [user?.uid]);
