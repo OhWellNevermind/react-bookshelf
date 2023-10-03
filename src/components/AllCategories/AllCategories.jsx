@@ -3,7 +3,12 @@ import { AllCategoriesItem } from './AllCategoriesItem';
 import { fetchCategories } from 'js/api';
 import { toast } from 'react-hot-toast';
 
-export const AllCategories = ({ setCategory, activeIndex, setActiveIndex }) => {
+export const AllCategories = ({
+  setCategory,
+  activeIndex,
+  setActiveIndex,
+  bookListRef,
+}) => {
   const [categories, setCategories] = useState([]);
 
   // const setActiveCategory = id => {
@@ -50,6 +55,7 @@ export const AllCategories = ({ setCategory, activeIndex, setActiveIndex }) => {
       {[...categories].map((category, index) => {
         return (
           <AllCategoriesItem
+            bookListRef={bookListRef}
             setCategory={setCategory}
             setIsActiveIndex={setActiveIndex}
             category={category}

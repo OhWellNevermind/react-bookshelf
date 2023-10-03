@@ -21,6 +21,7 @@ export const BookList = ({
   currentCategory,
   setCategory,
   setActiveIndex,
+  bookListRef,
 }) => {
   const [modalBookInfo, setModalBookInfo] = useState({});
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -76,7 +77,7 @@ export const BookList = ({
       ) : (
         <>{highlightLastWord(books[0]?.list_name)}</>
       )}
-      <ul className="flex flex-col flex-wrap w-[100%] ">
+      <ul className="flex flex-col flex-wrap w-[100%]" ref={bookListRef}>
         {currentCategory === 'All categories' ? (
           <div className="flex flex-wrap flex-col gap-y-[40px] gap-x-[24px] items-center justify-center lg:justify-start">
             {books.map((category, index) => {

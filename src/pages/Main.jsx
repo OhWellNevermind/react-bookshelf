@@ -2,7 +2,7 @@ import { fetchBookByCategory } from 'js/api';
 import { AllCategories } from 'components/AllCategories/AllCategories';
 import { BookList } from 'components/BookList/BookList';
 import { SupportUkraine } from 'components/SupportUkraine/SupportUkraine';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
@@ -11,6 +11,7 @@ const Main = () => {
   const [books, setBooks] = useState([]);
   const [category, setCategory] = useState('All categories');
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(1);
+  const bookListRef = useRef(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -42,11 +43,13 @@ const Main = () => {
           setCategory={setCategory}
           activeIndex={activeCategoryIndex}
           setActiveIndex={setActiveCategoryIndex}
+          bookListRef={bookListRef}
         />
         <SupportUkraine />
       </div>
       <div className="flex flex-col items-center">
         <BookList
+          bookListRef={bookListRef}
           setCategory={setCategory}
           currentCategory={category}
           books={books}

@@ -7,12 +7,14 @@ export const AllCategoriesItem = ({
   id,
   active,
   setIsActiveIndex,
+  bookListRef,
 }) => {
   return (
     <li
       onClick={evt => {
         setIsActiveIndex(id);
         setCategory(evt.currentTarget.textContent);
+        bookListRef.current?.scrollIntoView({ behavior: 'smooth' });
       }}
       className={clsx(
         'hover:text-[#4F2EE8] dark:hover:text-[#EAC645] cursor-pointer transition-all text-[16px] leading-[1.33] tracking-[-0.36px] ',
