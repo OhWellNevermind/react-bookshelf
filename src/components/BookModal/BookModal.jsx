@@ -30,8 +30,10 @@ export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
         });
       }
     }
-    getBooks();
-  }, [_id, user?.uid]);
+    if (user) {
+      getBooks();
+    }
+  }, [_id, user, user?.uid]);
 
   const addToShoppingList = evt => {
     const book = JSON.parse(evt.currentTarget.value);
