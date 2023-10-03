@@ -1,5 +1,5 @@
 import { ShoppingListItem } from './ShoppingListItem';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import usePagination from 'hooks/usePagination';
 import { StyledPagination } from './Pagination.styled';
 import { ThemeContext } from 'components/contex/ThemeContext';
@@ -21,8 +21,6 @@ export const ShoppingBookList = ({ books, removeFromShoppingList }) => {
     setPage(p);
     _DATA.jump(p);
   };
-
-  useEffect(() => {});
 
   // const countVisiblePaginationBtns = () => {};
 

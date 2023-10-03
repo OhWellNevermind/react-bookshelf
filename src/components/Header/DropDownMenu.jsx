@@ -103,7 +103,6 @@ const MenuItem = React.forwardRef((props, ref) => {
   return (
     <BaseMenuItem
       onClick={() => {
-        console.log(ref);
         userSignOut();
         setUsername('');
       }}

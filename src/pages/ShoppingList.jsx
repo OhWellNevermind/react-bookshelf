@@ -4,22 +4,26 @@ import { ShoppingBookList } from 'components/ShoppingList/ShoppingBookList';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { EmptyBookListMessage } from 'components/ShoppingList/EmptyBookListMessage';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from 'js/authorization';
+import { deleteBook, getUsersBooks } from 'js/db';
 
 const ShoppingList = () => {
   const [books, setBooks] = useState([]);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    setBooks(JSON.parse(localStorage.getItem('books')));
-  }, []);
+    async function getBooks() {
+      setBooks(Object.values(await getUsersBooks(user?.uid)));
+    }
+    getBooks();
+  }, [user?.uid]);
 
   const removeFromShoppingList = evt => {
     const bookId = evt.currentTarget.value;
-    const savedBooks = [...JSON.parse(localStorage.getItem('books'))];
+    const savedBooks = books;
 
-    localStorage.setItem(
-      'books',
-      JSON.stringify(savedBooks.filter(savedBook => savedBook._id !== bookId))
-    );
+    deleteBook(user.uid, bookId);
     setBooks(savedBooks.filter(savedBook => savedBook._id !== bookId));
   };
 

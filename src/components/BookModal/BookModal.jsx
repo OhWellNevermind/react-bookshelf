@@ -7,7 +7,7 @@ import { Dialog } from '@mui/material';
 import { ThemeContext } from 'components/contex/ThemeContext';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from 'js/authorization';
-import { writeUserData } from 'js/db';
+import { addBook, deleteBook, getUsersBooks } from 'js/db';
 
 export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
   const [isAdded, setIsAdded] = useState(false);
@@ -17,49 +17,39 @@ export const BookModal = ({ onClose, bookInfo, open, setModalIsOpen }) => {
 
   useEffect(() => {
     setIsAdded(false);
-    const books = localStorage.getItem('books');
+    async function getBooks() {
+      const savedBooks = await getUsersBooks(user?.uid);
 
-    if (!books) {
-      localStorage.setItem('books', JSON.stringify([]));
-      return;
-    }
-
-    JSON.parse(books).forEach(book => {
-      if (book._id === _id) {
-        setIsAdded(true);
+      if (!savedBooks) {
+        return;
+      } else {
+        Object.values(savedBooks).forEach(book => {
+          if (book._id === _id) {
+            setIsAdded(true);
+          }
+        });
       }
-    });
-  }, [_id, theme]);
+    }
+    getBooks();
+  }, [_id, user.uid]);
 
   const addToShoppingList = evt => {
     const book = JSON.parse(evt.currentTarget.value);
-    const savedBooks = localStorage.getItem('books');
 
     setIsAdded(true);
-    if (savedBooks !== null) {
-      const newBooks = [...JSON.parse(savedBooks), book];
-      localStorage.setItem('books', JSON.stringify(newBooks));
-      writeUserData(user.uid, newBooks);
-      return;
-    }
-    localStorage.setItem('books', JSON.stringify(book));
+    addBook(user.uid, book);
   };
 
   const removeFromShoppingList = evt => {
     const book = JSON.parse(evt.currentTarget.value);
-    const savedBooks = [...JSON.parse(localStorage.getItem('books'))];
 
-    const newBooks = savedBooks.filter(savedBook => savedBook._id !== book._id);
-
-    localStorage.setItem('books', JSON.stringify(newBooks));
-    writeUserData(user.uid, newBooks);
+    deleteBook(user.uid, book._id);
 
     setIsAdded(false);
   };
 
   return (
     <>
-      {console.log(theme)}
       {Object.keys(bookInfo).length ? (
         <Dialog
           sx={{

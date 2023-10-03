@@ -27,7 +27,6 @@ export async function userSignUp(username, email, password) {
       toast.error('Email is already in use. Please try again!');
       return;
     } else {
-      console.log(e);
       return;
     }
   }
@@ -47,7 +46,6 @@ export async function userSignIn(email, password) {
       toast.error('Invalid email. Please try again!');
       return;
     } else {
-      console.log(e);
       return;
     }
   }
