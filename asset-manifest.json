@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-bookshelf/static/css/main.1f3f9d71.css",
-    "main.js": "/react-bookshelf/static/js/main.3d93c590.js",
-    "static/js/329.58bdf93a.chunk.js": "/react-bookshelf/static/js/329.58bdf93a.chunk.js",
+    "main.js": "/react-bookshelf/static/js/main.7d2d1c6f.js",
+    "static/js/329.09b7ce84.chunk.js": "/react-bookshelf/static/js/329.09b7ce84.chunk.js",
     "static/js/142.7fe91798.chunk.js": "/react-bookshelf/static/js/142.7fe91798.chunk.js",
     "static/js/461.c2a607c4.chunk.js": "/react-bookshelf/static/js/461.c2a607c4.chunk.js",
     "static/js/243.8f707b16.chunk.js": "/react-bookshelf/static/js/243.8f707b16.chunk.js",
@@ -14,8 +14,8 @@
     "static/media/medicus@2x-4.png": "/react-bookshelf/static/media/medicus@2x-4.c2041c63cb45d31da3d6.png",
     "index.html": "/react-bookshelf/index.html",
     "main.1f3f9d71.css.map": "/react-bookshelf/static/css/main.1f3f9d71.css.map",
-    "main.3d93c590.js.map": "/react-bookshelf/static/js/main.3d93c590.js.map",
-    "329.58bdf93a.chunk.js.map": "/react-bookshelf/static/js/329.58bdf93a.chunk.js.map",
+    "main.7d2d1c6f.js.map": "/react-bookshelf/static/js/main.7d2d1c6f.js.map",
+    "329.09b7ce84.chunk.js.map": "/react-bookshelf/static/js/329.09b7ce84.chunk.js.map",
     "142.7fe91798.chunk.js.map": "/react-bookshelf/static/js/142.7fe91798.chunk.js.map",
     "461.c2a607c4.chunk.js.map": "/react-bookshelf/static/js/461.c2a607c4.chunk.js.map",
     "243.8f707b16.chunk.js.map": "/react-bookshelf/static/js/243.8f707b16.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.1f3f9d71.css",
-    "static/js/main.3d93c590.js"
+    "static/js/main.7d2d1c6f.js"
   ]
 }
